@@ -1,0 +1,8 @@
+export const SET_PROVIDER = 'SET_PROVIDER';
+export const SET_BALANCE = 'SET_BALANCE';
+export const SET_ACCOUNT = 'SET_ACCOUNT';
+export const SET_TOKEN_BALANCE = 'SET_TOKEN_BALANCE';
+export const SET_IS_CONNECTING = 'SET_IS_CONNECTING';
+export const SET_IS_CONNECTED = 'SET_IS_CONNECTED';
+export const SET_ERROR = 'SET_ERROR';
+export const RESET_WEB3 = 'RESET_WEB3';

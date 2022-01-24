@@ -1,0 +1,32 @@
+.home {
+  width: 90%;
+  max-width: 40rem;
+  padding: 3rem;
+  margin: 4rem auto 2rem auto;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.span {
+  float: right;
+  font-weight: 500;
+}
+.p {
+  text-align: left;
+  font-weight: 500;
+}
+@media only screen and (max-width: 51.25em) {
+  .home {
+    padding: 1rem;
+  }
+  .p {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .span {
+    float: none;
+    font-size: 0.8rem;
+  }
+}
