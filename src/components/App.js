@@ -2,20 +2,18 @@ import React, { useEffect } from 'react';
 import Login from './Login/Login';
 import Home from './Home/Home';
 import LoadingSpinner from './UI/Loading/LoadingSpinner';
-import { Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import useStorage from '../hooks/useStorage';
 import useWeb3Services from '../hooks/Web3Services';
 import { validProviders } from '../functions/validProviders';
 import { setError } from '../redux/actions/web3_actions';
+import Header from './Header/Header';
 
 function App() {
   const { getItem } = useStorage();
   const dispatch = useDispatch();
-  const { onLogin, logout } = useWeb3Services();
-  const { account, isConnected, isConnecting } = useSelector(
-    (state) => state.web3
-  );
+  const { onLogin } = useWeb3Services();
+  const { isConnected, isConnecting } = useSelector((state) => state.web3);
   useEffect(() => {
     // * To detect if user changed its accounts and only change automatically if user is loggedIn
     if (window.ethereum) {
@@ -48,25 +46,12 @@ function App() {
 
   return (
     <div>
-      <header className='main-header'>
-        <h1>Crypto Zilla</h1>
-        <nav className='nav'>
-          <ul>
-            <li>
-              {account && (
-                <Button variant='contained' color='primary' onClick={logout}>
-                  Sign out
-                </Button>
-              )}
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         {isConnecting ? (
           <LoadingSpinner />
         ) : (
-          <>{!isConnected ? <Login onLogin={onLogin} /> : <Home />}</>
+          <>{!isConnected ? <Login /> : <Home />}</>
         )}
       </main>
     </div>

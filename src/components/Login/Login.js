@@ -1,9 +1,12 @@
 import { useSelector } from 'react-redux';
+import useWeb3Services from '../../hooks/Web3Services';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const { isConnecting, error } = useSelector((state) => state.web3);
+  const { onLogin } = useWeb3Services();
+
   return (
     <div className={classes.login_container}>
       <Card className={classes.login}>
